@@ -2,7 +2,8 @@
   
     "email": "lacuna2505@gmail.com",
     "password": "Playgames2505!",
-    "animalName": "Beata"
+    "animalName": "Beata",
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdGF0dXMiOiJzdWNjZXNzIiwiZGF0YSI6eyJpZCI6MjEsInVzZXJuYW1lIjoiIiwiZW1haWwiOiJsYWN1bmEyNTA1QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiYjlhMTFkOTQxZDA2Mzg0NzM4MWNkODgwMmU1MzdkMTMiLCJyb2xlIjoiY3VzdG9tZXIiLCJkZWx1eGVUb2tlbiI6IiIsImxhc3RMb2dpbklwIjoiMC4wLjAuMCIsInByb2ZpbGVJbWFnZSI6Ii9hc3NldHMvcHVibGljL2ltYWdlcy91cGxvYWRzL2RlZmF1bHQuc3ZnIiwidG90cFNlY3JldCI6IiIsImlzQWN0aXZlIjp0cnVlLCJjcmVhdGVkQXQiOiIyMDIyLTExLTIwIDE1OjE1OjIzLjI3NCArMDA6MDAiLCJ1cGRhdGVkQXQiOiIyMDIyLTExLTIwIDE1OjE1OjIzLjI3NCArMDA6MDAiLCJkZWxldGVkQXQiOm51bGx9LCJpYXQiOjE2Njg5NjkwNzEsImV4cCI6MTY2ODk4NzA3MX0.hkhH4uFA-T3tzlpwYarIykfOWaV3g-Coy2iExfWG5lA5dVL-eG5zn1bD9rsJtCgqzCr6cT-2B-l9X5_InQQdfUGPFmFaRaCDixa7lyQy8L6kI6v_NF_mJ1tehtrI3_IUI1nEQISznmGAeqZ-GSdVZSvdeNNF8gAZrZeRoBLgvo0"
     
 
 }
