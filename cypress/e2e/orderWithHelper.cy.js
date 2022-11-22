@@ -5,7 +5,8 @@ import searchPage from '../support/Pages/SearchPage.js';
 import registrationPage from '../support/pages/RegistrationPage.js';
 import addNewAddressPage from '../support/pages/AddNewAddressPage.js';
 import selectAddressPage from '../support/pages/SelectAddressPage';
-import paymentPage from '../support/pages/PaymentPage'
+import paymentPage from '../support/pages/PaymentPage';
+import {searchExistingProduct} from '../support/helper'
 
 it('Authorization', () => {
     authorizationPage.visit();
@@ -15,7 +16,9 @@ it('Authorization', () => {
     authorizationPage.submitLoginForm(user.email, user.password);
     
     searchPage.visit();
-    searchPage.orderProduct();
+    searchPage.openTheSearchField();
+    searchExistingProduct(' Carrot Juice (1000ml) ');
+    searchPage.orderProductThatWasFound();
     searchPage.checkoutCheck();
 
     addNewAddressPage.submitNewAddress();

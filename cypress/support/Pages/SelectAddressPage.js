@@ -7,11 +7,19 @@ class SelectAdressPage extends basePage{
     }
 
     choosetheAddress(){
-        return cy.get('#mat-radio-43-input');
+        return cy.get('.mat-radio-inner-circle').eq(0);
     }
     
     clickOnTheAddress(){
-       this.choosetheAddress().check();
+       this.choosetheAddress().click();
+     }
+
+    choosetheNewAddress(){
+        return cy.get('.mat-radio-inner-circle').eq(1);
+    }
+    
+    clickOnTheNewAddress(){
+       this.choosetheNewAddress().click();
      }
 
      getContinueButton(){
@@ -24,7 +32,7 @@ class SelectAdressPage extends basePage{
      }
 
     getStandartDelivery(){
-        return cy.get('#mat-radio-46-input');
+        return cy.get('.mat-radio-inner-circle').eq(2);
         
     }
     
@@ -41,10 +49,24 @@ class SelectAdressPage extends basePage{
         this.getContinueButton2().click();
      }
 
+     selectNewAddressAndDelivery(){
+        cy.log(`Select address and delivery`);
+        
+        this.choosetheNewAddress().click();
+ 
+        this.getContinueButton().click();
+ 
+        this.getStandartDelivery().click();
+
+        this.getContinueButton2().click();
+
+
+     }
+
      selectAddressAndDelivery(){
         cy.log(`Select address and delivery`);
         
-        this.choosetheAddress().check();
+        this.choosetheAddress().click();
  
         this.getContinueButton().click();
  

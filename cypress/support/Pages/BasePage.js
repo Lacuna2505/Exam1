@@ -10,6 +10,10 @@ export default class BasePage {
 
     }
 
+    openTheSearchField(){
+        this.getSearchButton().click();
+    }
+
     performSearch(searchQuery){
         cy.log(`**Perform search with search query ${searchQuery}**`)
         this.getSearchButton().type(searchQuery);

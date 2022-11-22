@@ -18,16 +18,13 @@ it('Authorization', () => {
     searchPage.orderProduct();
     searchPage.checkoutCheck();
 
-    addNewAddressPage.submitNewAddress();
-    addNewAddressPage.addAddressCheck1();
-    addNewAddressPage.addAddressCheck2();
-
-    selectAddressPage.selectNewAddressAndDelivery();
+    selectAddressPage.selectAddressAndDelivery();
     selectAddressPage.addressCheck();
 
-    paymentPage.creditcardCreation();
+    paymentPage.chooseExistingCard();
     paymentPage.paymentCheck1();
     paymentPage.paymentCheck2();
+    paymentPage.finishTheOrder();
 
     
 

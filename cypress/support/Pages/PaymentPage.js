@@ -3,7 +3,7 @@ import {faker} from '@faker-js/faker';
 
 let user = {
   firstName: faker.name.firstName(),
-  cardNumber: faker.finance.creditCardNumber()
+  cardNumber: '1234654896511236'
   
   
 }
@@ -14,8 +14,21 @@ class PaymentPage extends basePage{
         cy.visit('/#/payment/shop')
     }
 
+    getExistingCard(){
+      return cy.get('.mat-radio-inner-circle').eq(0);
+    }
+
+    clickOnExistingCard(){
+      this.getExistingCard().click();
+    }
+
+    chooseExistingCard(){
+      this.getExistingCard().click();
+      this.getContinueButtonCreditCart().click();
+    }
+
     getAddNewCart(){
-        return cy.get('.mat-expansion-panel-header-description.ng-tns-c150-30');
+        return cy.get('app-payment-method > div > div > mat-expansion-panel');
     }
     
     clickOnAddNewCart(){
@@ -23,7 +36,7 @@ class PaymentPage extends basePage{
      }
 
      getName(){
-        return cy.get('#mat-input-22');
+      return cy.get('.mat-form-field-infix [type="text"]').eq(1);
         
     }
 
@@ -32,7 +45,7 @@ class PaymentPage extends basePage{
      }
 
     getCardNumber(){
-        return cy.get('#mat-input-23');
+      return cy.get('.mat-form-field-infix [type="number"]');
         
     }
     
@@ -41,38 +54,24 @@ class PaymentPage extends basePage{
      }
 
     getExpiryMonth(){
-        return cy.get('#mat-input-24') ;
+      return cy.get('select.mat-input-element').eq(0);
+      
     }
 
     clickOnExpiryMonth(){
-        this.getExpiryMonth().click();
-     }
-
-     chooseExpiryMonth(){
-        return cy.get('[value="5"]');
-     }
-
-     clickOnTheExpiryMonth(){
-        this.chooseExpiryMonth().click();
+      this.getExpiryMonth().select('5');
      }
 
      getExpiryYear(){
-        return cy.get('#mat-input-25') ;
+      return cy.get('select.mat-input-element').eq(1);
+     
     }
 
     clickOnExpiryYear(){
-        this.getExpiryYear().click();
-     }
+        this.getExpiryYear().select('2081');
+    }
 
-     chooseExpiryYear(){
-        return cy.get('[value="2081"]');
-     }
-
-     clickOnTheExpiryYear(){
-        this.chooseExpiryYear().click();
-     }
-
-     getSubmitButton(){
+    getSubmitButton(){
         return cy.get('#submitButton')
      }
 
@@ -81,11 +80,11 @@ class PaymentPage extends basePage{
      }
 
      choosetheCreditCard(){
-        return cy.get('#mat-radio-47-input');
+        return cy.get('.mat-radio-inner-circle').eq(1);
      }
 
      clickonTheCreditCard(){
-        this.choosetheCreditCard().check();
+        this.choosetheCreditCard().click();
      }
 
      getContinueButtonCreditCart(){
@@ -101,7 +100,30 @@ class PaymentPage extends basePage{
      }
 
      paymentCheck2(){
-        return cy.get('.order-summary').should('include', 'Order Summary');
+        return cy.get('.order-summary').should('contain', 'Order Summary');
+     }
+
+     getFinishOrder(){
+      return cy.get('[aria-label="Complete your purchase"]');
+     }
+
+     clickOnFinishOrder(){
+      this.getFinishOrder().click();
+     }
+
+     finishCheck1(){
+      cy.url().should('include', '/#/order-completion');
+     }
+
+     finishCheck2(){
+      return cy.get('.confirmation').should('contain', 'Thank you for your purchase!');
+     }
+
+     finishTheOrder(){
+      cy.log(`Finish the Order`);
+      this.getFinishOrder().click();
+      cy.url().should('include', '/#/order-completion');
+      return cy.get('.confirmation').should('contain', 'Thank you for your purchase!');
      }
 
 
@@ -112,10 +134,12 @@ class PaymentPage extends basePage{
         this.getAddNewCart().click();
         this.getName().type(user.firstName);
         this.getCardNumber().type(user.cardNumber);
-        this.getExpiryMonth().click();
-        this.getExpiryYear().click();
+        
+        this.getExpiryMonth().select('5');
+        this.getExpiryYear().select('2081');
+        
         this.getSubmitButton().click();
-        this.choosetheCreditCard().check();
+        this.choosetheCreditCard().click();
         this.getContinueButtonCreditCart().click();
      }
 

@@ -52,6 +52,45 @@ class SearchPage extends basePage{
 
      }
 
+     addToBasket(){
+        return cy.get('[aria-label="Add to Basket"]')
+     }
+
+     clickAddToBasket(){
+        this.addToBasket().click();
+     }
+
+     orderProductThatWasFound(){
+        cy.log(`Order the Product that was found`);
+        
+        this.addToBasket().click();
+ 
+        this.goToMyBasket().click();
+ 
+        this.checkoutButton().click(); 
+
+     }
+
+
+
+
+     getSearchButton(){
+        cy.log('Get the search button')
+        return cy.get('.mat-ripple.mat-search_icon-search');
+    }
+    
+    clickOnTheSearchButton(){
+        cy.log('Click on the Search Button')
+        this.getSearchButton().click();
+
+    }
+
+    openTheSearchField(){
+        this.getSearchButton().click();
+    }
+
+     
+
 
 }
 export default new SearchPage();
